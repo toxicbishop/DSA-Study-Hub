@@ -12,7 +12,7 @@
     "express-rate-limit": "^8.2.2"
   },
   "overrides": {
-    "ip-address": ">=10.1.1",
+    "ip-address": ">=10.2.2",
     "qs": "^6.15.2",
     "body-parser": ">=1.20.6"
   }
