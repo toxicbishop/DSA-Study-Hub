@@ -16,7 +16,7 @@
     "connect-mongo": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
-    "dotenv": "^16.6.1",
+    "dotenv": "^17.4.2",
     "express": "^4.22.2",
     "express-rate-limit": "^8.5.2",
     "express-session": "^1.19.0",
