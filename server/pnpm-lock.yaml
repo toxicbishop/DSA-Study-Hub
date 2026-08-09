@@ -36,8 +36,8 @@ importers:
         specifier: ^4.22.2
         version: 4.22.2
       express-rate-limit:
-        specifier: ^8.5.2
-        version: 8.6.1(express@4.22.2)
+        specifier: ^8.6.2
+        version: 8.6.2(express@4.22.2)
       express-session:
         specifier: ^1.19.0
         version: 1.19.0
@@ -977,8 +977,8 @@ packages:
     resolution: {integrity: sha512-PMARsyh/JtqC20HoGqlFcIlQAyqUtW4PlI1rup1uhYJtKuwAjbvWi3GQMAn+STdHum/dk8xrKfUM1+5SAwpolA==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
-  express-rate-limit@8.6.1:
-    resolution: {integrity: sha512-0D493aP61w0TJ2A0wy27riRsO7FMQ7FK+KUHOKCSfPvYo0R55aiC6emCVgFUeShH0fq0ICPVzNcgoS+BsbXQCA==}
+  express-rate-limit@8.6.2:
+    resolution: {integrity: sha512-YH4ru+eOJxQABscKFfRCy9R7x9QFGdezclVMwwgFFndzS2Xnm0uo6B0ABZsLhcpeptGv2qvuJVWlQr9gQZoC3A==}
     engines: {node: '>= 16'}
     peerDependencies:
       express: '>= 4.11'
@@ -3077,7 +3077,7 @@ snapshots:
       jest-mock: 30.4.1
       jest-util: 30.4.1
 
-  express-rate-limit@8.6.1(express@4.22.2):
+  express-rate-limit@8.6.2(express@4.22.2):
     dependencies:
       debug: 4.4.3(supports-color@5.5.0)
       express: 4.22.2
