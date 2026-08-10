@@ -1,0 +1,52 @@
+version: 2
+updates:
+  # Root (Next.js frontend) — pnpm-lock.yaml
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+
+  # Server — server/pnpm-lock.yaml
+  - package-ecosystem: "npm"
+    directory: "/server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps(server)"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+
+  # Executor sidecar — server/executor/package-lock.json
+  - package-ecosystem: "npm"
+    directory: "/server/executor"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps(executor)"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+
+  # GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "ci"
+    open-pull-requests-limit: 5
