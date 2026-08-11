@@ -1,5 +1,5 @@
 import '../src/index.css';
-import '../src/tw-animate.css';
+
 import type { AppProps } from 'next/app';
 import { Providers } from '../src/components/Providers';
 import { useState, useEffect, useMemo, useCallback } from 'react';
