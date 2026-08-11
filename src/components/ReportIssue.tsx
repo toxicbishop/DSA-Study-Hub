@@ -34,13 +34,11 @@ const ReportIssue: React.FC = () => {
     lastSubmitRef.current = now;
     setIsSubmitting(true);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-
     try {
-      const response = await secureFetch(`${API_URL}/api/issues`, {
+      const response = await secureFetch(`/api/proxy/issues`, {
         method: "POST",
         headers: {
-          "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           type,

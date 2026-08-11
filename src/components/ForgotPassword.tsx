@@ -20,7 +20,7 @@ export const ForgotPassword = ({ onBack }: ForgotPasswordProps) => {
 
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/forgot-password`,
+        `/api/proxy/auth/forgot-password`,
         {
           method: "POST",
           body: JSON.stringify({ email }),

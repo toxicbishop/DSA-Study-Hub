@@ -12,7 +12,7 @@ export function AuthCallbackView() {
     const code = router.query.code as string;
 
     if (code) {
-      secureFetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/github`, {
+      secureFetch(`/api/proxy/auth/github`, {
         method: "POST",
         body: JSON.stringify({ code }),
       })

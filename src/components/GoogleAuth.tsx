@@ -72,7 +72,7 @@ export const GoogleAuth = ({
     if (credentialResponse.credential) {
       try {
         const res = await secureFetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
+          `/api/proxy/auth/google`,
           {
             method: "POST",
             body: JSON.stringify({ credential: credentialResponse.credential }),
@@ -91,11 +91,19 @@ export const GoogleAuth = ({
     }
   };
 
-  const handleGitHubLogin = () => {
-    const clientId = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID;
-    window.location.assign(
-      `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=read:user,user:email`,
-    );
+  const handleGitHubLogin = async () => {
+    try {
+      const res = await fetch('/api/config');
+      const data = await res.json();
+      const clientId = data.githubClientId;
+      if (clientId) {
+        window.location.assign(
+          `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=read:user,user:email`,
+        );
+      }
+    } catch (err) {
+      console.error("Failed to fetch GitHub client ID", err);
+    }
   };
 
   const handleLocalSubmit = async (e: React.FormEvent) => {
@@ -109,7 +117,7 @@ export const GoogleAuth = ({
     if (!token) {
       console.log("CSRF token missing, seeding...");
       try {
-        await secureFetch(`${process.env.NEXT_PUBLIC_API_URL}/api/csrf-seed`);
+        await secureFetch(`/api/proxy/csrf-seed`);
         // Small delay to ensure browser handles the partitioned cookie
         await new Promise((resolve) => setTimeout(resolve, 200));
       } catch (err) {
@@ -120,7 +128,7 @@ export const GoogleAuth = ({
     const endpoint = isRegistering ? "/register" : "/login";
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth${endpoint}`,
+        `/api/proxy/auth${endpoint}`,
         {
           method: "POST",
           body: JSON.stringify({ email, password, name }),
@@ -154,7 +162,7 @@ export const GoogleAuth = ({
 
   const handleLogoutClick = async () => {
     try {
-      await secureFetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`, {
+      await secureFetch(`/api/proxy/auth/logout`, {
         method: "POST",
       });
     } catch (e) {

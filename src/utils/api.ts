@@ -12,44 +12,12 @@ export async function secureFetch(url: string, options: RequestInit = {}) {
     headers["Content-Type"] = "application/json";
   }
 
-  const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || "";
-  // Normalize the base API URL and resolve the requested URL against it
-  let requestUrl: string;
-  try {
-    if (url.startsWith("/")) {
-      if (!rawApiUrl) {
-        throw new Error("Base API URL is not configured.");
-      }
-      const base = new URL(rawApiUrl);
-      requestUrl = new URL(url, base).toString();
-    } else {
-      const parsed = new URL(url, rawApiUrl || undefined);
-      requestUrl = parsed.toString();
-    }
-  } catch (e) {
-    console.error("[secureFetch] Invalid URL provided:", url, e);
-    throw new Error("Invalid URL for secureFetch.");
-  }
+  // URLs are now always relative (same-origin), proxying to the backend
+  let requestUrl = url;
 
-  // Security: Prevent sending credentials and tokens to unintended hostnames
-  try {
-    if (!rawApiUrl) {
-      throw new Error("Base API URL is not configured.");
-    }
-    const allowedOrigin = new URL(rawApiUrl).origin;
-    const targetOrigin = new URL(requestUrl).origin;
-    if (allowedOrigin !== targetOrigin) {
-      console.error(
-        `[secureFetch] Blocked unintended cross-origin fetch: ${requestUrl} (allowed origin: ${allowedOrigin}, target origin: ${targetOrigin})`,
-      );
-      throw new Error("Cross-origin fetch with secureFetch is forbidden.");
-    }
-  } catch (e) {
-    if (e instanceof Error && e.message === "Cross-origin fetch with secureFetch is forbidden.") {
-      throw e;
-    }
-    console.error("[secureFetch] Failed to validate URL origin:", url, e);
-    throw new Error("Invalid URL for secureFetch.");
+  // Make sure we resolve absolute path correctly if a relative path was somehow provided
+  if (typeof window !== "undefined" && !requestUrl.startsWith('http')) {
+      requestUrl = new URL(requestUrl, window.location.origin).toString();
   }
 
   const defaultOptions: RequestInit = {
@@ -70,7 +38,7 @@ export async function secureFetch(url: string, options: RequestInit = {}) {
   // If unauthorized, attempt to refresh the token
   if (response.status === 403 || response.status === 401) {
     const refreshRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/refresh`,
+      `/api/proxy/auth/refresh`,
       {
         method: "POST",
         credentials: "include",
