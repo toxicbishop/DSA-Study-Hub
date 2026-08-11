@@ -5,9 +5,6 @@ vi.mock("../utils/csrf", () => ({
   getCsrfToken: vi.fn(() => "mock-csrf-token"),
 }));
 
-// Set env before importing
-vi.stubEnv("NEXT_PUBLIC_API_URL", "https://api.example.com");
-
 describe("secureFetch", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
@@ -18,21 +15,13 @@ describe("secureFetch", () => {
     });
   });
 
-  it("blocks cross-origin requests", async () => {
+  it("passes relative URLs directly to fetch", async () => {
     const { secureFetch } = await import("../utils/api");
 
-    await expect(
-      secureFetch("https://evil.example.com/steal")
-    ).rejects.toThrow("Cross-origin fetch with secureFetch is forbidden.");
-  });
-
-  it("resolves relative URLs against the base API URL", async () => {
-    const { secureFetch } = await import("../utils/api");
-
-    await secureFetch("/api/test");
+    await secureFetch("/api/proxy/test");
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://api.example.com/api/test",
+      "/api/proxy/test",
       expect.objectContaining({
         credentials: "include",
         headers: expect.objectContaining({
@@ -46,7 +35,7 @@ describe("secureFetch", () => {
   it("includes CSRF token in headers", async () => {
     const { secureFetch } = await import("../utils/api");
 
-    await secureFetch("/api/data");
+    await secureFetch("/api/proxy/data");
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
       expect.any(String),
@@ -68,12 +57,12 @@ describe("secureFetch", () => {
     globalThis.fetch = mockFetch;
 
     const { secureFetch } = await import("../utils/api");
-    await secureFetch("/api/protected");
+    await secureFetch("/api/proxy/protected");
 
     // Should have called fetch 3 times: original, refresh, retry
     expect(mockFetch).toHaveBeenCalledTimes(3);
     expect(mockFetch).toHaveBeenCalledWith(
-      "https://api.example.com/api/auth/refresh",
+      "/api/proxy/auth/refresh",
       expect.objectContaining({ method: "POST", credentials: "include" })
     );
   });

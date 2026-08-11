@@ -116,7 +116,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     if (user) {
       try {
-        await secureFetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/progress`, {
+        await secureFetch(`/api/proxy/users/progress`, {
           method: "PUT",
           body: JSON.stringify({ completedPrograms: newCompleted }),
         });
@@ -210,7 +210,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const handleAdminLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/login`, {
+      const res = await fetch(`/api/proxy/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

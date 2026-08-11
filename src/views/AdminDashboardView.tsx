@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { secureFetch } from "../utils/api";
 
-const API = process.env.NEXT_PUBLIC_API_URL;
+const API = "/api/proxy";
 
 interface Stats {
   totalUsers: number;
@@ -317,7 +317,7 @@ export function AdminDashboardView() {
                   ["Environment", stats.environment],
                   ["Node.js", stats.nodeVersion],
                   ["Uptime", formatUptime(stats.serverUptime)],
-                  ["API", process.env.NEXT_PUBLIC_API_URL],
+                  ["API", "/api/proxy"],
                   ["Auth", "JWT httpOnly Cookie"],
                   ["DB", "MongoDB Atlas"],
                 ].map(([k, v]) => (

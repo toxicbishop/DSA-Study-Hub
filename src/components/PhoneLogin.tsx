@@ -24,7 +24,7 @@ export const PhoneLogin = ({ onLogin, onBack }: PhoneLoginProps) => {
 
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/phone-login`,
+        `/api/proxy/auth/phone-login`,
         {
           method: "POST",
           body: JSON.stringify({ phoneNumber }),
@@ -52,7 +52,7 @@ export const PhoneLogin = ({ onLogin, onBack }: PhoneLoginProps) => {
 
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-otp`,
+        `/api/proxy/auth/verify-otp`,
         {
           method: "POST",
           body: JSON.stringify({ phoneNumber, otp }),
