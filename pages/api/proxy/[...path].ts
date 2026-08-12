@@ -10,7 +10,12 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { path } = req.query;
-  const urlPath = Array.isArray(path) ? path.join('/') : path;
+  const urlPath = Array.isArray(path) ? path.join('/') : (path || '');
+  
+  // Prevent path traversal
+  if (typeof urlPath !== 'string' || urlPath.includes('..')) {
+    return res.status(400).json({ success: false, message: 'Invalid path' });
+  }
   
   const backendUrl = process.env.API_URL;
   if (!backendUrl) {
@@ -30,7 +35,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   }
   
-  const targetUrl = `${backendUrl}/api/${urlPath}${queryString.toString() ? '?' + queryString.toString() : ''}`;
+  const targetUrlStr = `${backendUrl}/api/${urlPath}${queryString.toString() ? '?' + queryString.toString() : ''}`;
+  let targetUrlObj: URL;
+  try {
+    targetUrlObj = new URL(targetUrlStr);
+    const backendUrlObj = new URL(backendUrl);
+    // Ensure the constructed URL doesn't escape the backend origin
+    if (targetUrlObj.origin !== backendUrlObj.origin) {
+      throw new Error("Origin mismatch");
+    }
+  } catch (err) {
+    return res.status(400).json({ success: false, message: 'Invalid target URL' });
+  }
+
+  const targetUrl = targetUrlObj.toString();
 
   try {
     const headers = new Headers();
