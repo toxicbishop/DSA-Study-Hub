@@ -10,12 +10,16 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { path } = req.query;
-  const urlPath = Array.isArray(path) ? path.join('/') : (path || '');
-  
+  const pathSegments = Array.isArray(path) ? path : (path ? [path] : []);
+
   // Prevent path traversal
-  if (typeof urlPath !== 'string' || urlPath.includes('..')) {
-    return res.status(400).json({ success: false, message: 'Invalid path' });
+  for (const segment of pathSegments) {
+    if (segment === '..' || segment === '.') {
+      return res.status(400).json({ success: false, message: 'Invalid path' });
+    }
   }
+
+  const urlPath = pathSegments.join('/');
   
   const backendUrl = process.env.API_URL;
   if (!backendUrl) {
@@ -23,26 +27,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ success: false, message: 'Server configuration error' });
   }
 
-  // Construct the target URL
-  const queryString = new URLSearchParams();
-  for (const [key, value] of Object.entries(req.query)) {
-    if (key !== 'path' && value) {
-      if (Array.isArray(value)) {
-        value.forEach(v => queryString.append(key, v));
-      } else {
-        queryString.append(key, value);
-      }
-    }
-  }
-  
-  const targetUrlStr = `${backendUrl}/api/${urlPath}${queryString.toString() ? '?' + queryString.toString() : ''}`;
   let targetUrlObj: URL;
   try {
-    targetUrlObj = new URL(targetUrlStr);
-    const backendUrlObj = new URL(backendUrl);
-    // Ensure the constructed URL doesn't escape the backend origin
-    if (targetUrlObj.origin !== backendUrlObj.origin) {
-      throw new Error("Origin mismatch");
+    targetUrlObj = new URL(backendUrl);
+    
+    // Safely construct the path using encodeURIComponent to neutralize any special URL characters
+    const safeEncodedPath = pathSegments.map(seg => encodeURIComponent(seg)).join('/');
+    const basePath = targetUrlObj.pathname.endsWith('/') ? targetUrlObj.pathname.slice(0, -1) : targetUrlObj.pathname;
+    targetUrlObj.pathname = `${basePath}/api/${safeEncodedPath}`;
+
+    // Safely append query parameters using the URLSearchParams API
+    for (const [key, value] of Object.entries(req.query)) {
+      if (key !== 'path' && value) {
+        if (Array.isArray(value)) {
+          value.forEach(v => targetUrlObj.searchParams.append(key, v));
+        } else {
+          targetUrlObj.searchParams.append(key, value);
+        }
+      }
     }
   } catch (err) {
     return res.status(400).json({ success: false, message: 'Invalid target URL' });
