@@ -56,7 +56,7 @@ export default function CalendarVisualizer() {
           <Calendar size={24} />
         </div>
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display">
+          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display dark:font-display">
             Program 1: Weekly Activity Calendar
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">
