@@ -32,7 +32,7 @@ export default function ResetPassword() {
 
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/reset-password/${encodeURIComponent(tokenStr)}`,
+        `/api/proxy/auth/reset-password/${encodeURIComponent(tokenStr)}`,
         {
           method: "POST",
           body: JSON.stringify({ password }),

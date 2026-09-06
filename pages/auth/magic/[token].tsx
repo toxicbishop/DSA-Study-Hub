@@ -27,7 +27,7 @@ export default function MagicLoginCallback({ onLogin }: { onLogin: (user: Google
     const verifyMagicLink = async () => {
       try {
         const res = await secureFetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/magic/${encodeURIComponent(tokenStr)}`
+          `/api/proxy/auth/magic/${encodeURIComponent(tokenStr)}`
         );
         const data = await res.json();
         if (data.success) {

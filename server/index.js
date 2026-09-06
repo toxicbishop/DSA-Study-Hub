@@ -333,7 +333,7 @@ app.get("/api/", (req, res) => {
 });
 
 // Enable CORS Pre-Flight for all routes
-app.options("*", cors());
+app.options("/{*path}", cors());
 
 // Mount Auth Routes
 const authRoutes = require("./routes/auth");
@@ -660,7 +660,7 @@ app.delete("/api/issues/:id", validateAdminKey, async (req, res) => {
 
 // The "catchall" handler: for any request that doesn't
 // match a specific API route, just return a 404.
-app.all("*", (req, res) => {
+app.all("/{*path}", (req, res) => {
   console.warn(`[404] Unhandled Request: ${req.method} ${req.url}`);
   res.status(404).json({
     success: false,

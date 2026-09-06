@@ -20,7 +20,7 @@ export const MagicLinkLogin = ({ onBack }: MagicLinkLoginProps) => {
 
     try {
       const res = await secureFetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/magic-login`,
+        `/api/proxy/auth/magic-login`,
         {
           method: "POST",
           body: JSON.stringify({ email }),
