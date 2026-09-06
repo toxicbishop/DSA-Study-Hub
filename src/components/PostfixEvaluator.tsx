@@ -142,13 +142,13 @@ export default function PostfixEvaluator() {
   };
 
   return (
-    <div className="p-6 neo-brutalism bg-white dark:bg-[#0D1424]/80 dark:border dark:border-cyan-500/20 dark:shadow-[0_0_15px_rgba(6,182,212,0.15)] dark:backdrop-blur-xl rounded-xl font-mono text-gray-900 dark:text-white dark:font-display">
+    <div className="p-6 neo-brutalism bg-white dark:bg-[#0D1424]/80 dark:border dark:border-cyan-500/20 dark:shadow-[0_0_15px_rgba(6,182,212,0.15)] dark:backdrop-blur-xl rounded-xl font-mono text-gray-900 dark:text-white dark:font-display dark:font-display">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 bg-cyan-500 dark:bg-cyan-500/20 dark:text-cyan-400 dark:border dark:border-cyan-500/30 rounded-xl text-white">
           <Settings size={24} />
         </div>
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display font-sans">
+          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display dark:font-display font-sans">
             Program 5A: Postfix Evaluation Visualizer
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400 font-sans">

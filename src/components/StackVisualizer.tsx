@@ -164,7 +164,7 @@ export default function StackVisualizer() {
           <Layers size={24} />
         </div>
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display">
+          <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white dark:font-display dark:font-display">
             Program 3: Stack Operations & Palindrome Checker
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -299,7 +299,7 @@ export default function StackVisualizer() {
                     return (
                       <div
                         key={`${item}-${originalIdx}`}
-                        className={`w-full h-10 flex items-center justify-center border-2 border-black dark:border-white rounded-lg font-bold text-sm text-gray-900 dark:text-white dark:font-display shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] animate-pop ${
+                        className={`w-full h-10 flex items-center justify-center border-2 border-black dark:border-white rounded-lg font-bold text-sm text-gray-900 dark:text-white dark:font-display dark:font-display shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] animate-pop ${
                           isTop ? 'bg-cyan-500 text-white' : 'bg-gray-100 dark:bg-gray-800'
                         }`}
                       >
