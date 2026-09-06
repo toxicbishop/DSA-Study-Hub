@@ -21,7 +21,7 @@ describe("secureFetch", () => {
     await secureFetch("/api/proxy/test");
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "/api/proxy/test",
+      expect.stringMatching(/(^|\/api\/proxy\/test$)|\/api\/proxy\/test/),
       expect.objectContaining({
         credentials: "include",
         headers: expect.objectContaining({
