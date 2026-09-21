@@ -30,7 +30,7 @@
     "mongodb": "^7.6.0",
     "mongoose": "^9.10.0",
     "multer": "^2.3.0",
-    "nodemailer": "^10.0.3"
+    "nodemailer": "^10.0.10"
   },
   "devDependencies": {
     "jest": "^30.5.1",
