@@ -29,7 +29,7 @@
     "lusca": "^1.7.0",
     "mongodb": "^7.6.0",
     "mongoose": "^9.10.0",
-    "multer": "^2.3.0",
+    "multer": "^2.4.0",
     "nodemailer": "^10.0.3"
   },
   "devDependencies": {
