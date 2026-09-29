@@ -33,7 +33,7 @@
     "nodemailer": "^10.0.3"
   },
   "devDependencies": {
-    "jest": "^30.5.1",
+    "jest": "^30.5.2",
     "js-yaml": "^5.4.1",
     "nodemon": "^3.1.14",
     "supertest": "^7.2.2"
