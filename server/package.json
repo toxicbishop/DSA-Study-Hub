@@ -16,7 +16,7 @@
     "connect-mongo": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.3",
     "express": "^5.2.1",
     "express-rate-limit": "^8.7.0",
     "express-session": "^1.19.0",
@@ -28,15 +28,15 @@
     "lodash": "^4.18.1",
     "lusca": "^1.7.0",
     "mongodb": "^7.6.0",
-    "mongoose": "^9.10.0",
+    "mongoose": "^9.10.2",
     "multer": "^2.3.0",
     "nodemailer": "^10.0.3"
   },
   "devDependencies": {
-    "jest": "^30.5.1",
+    "jest": "^30.5.2",
     "js-yaml": "^5.4.1",
     "nodemon": "^3.1.14",
-    "supertest": "^7.2.2"
+    "supertest": "^7.3.0"
   },
   "jest": {
     "testMatch": [
