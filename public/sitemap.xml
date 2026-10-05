@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pages -->
     <url>
         <loc>https://dsa-study-hub.vercel.app/</loc>
         <changefreq>daily</changefreq>
@@ -11,30 +12,99 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dsa-study-hub.vercel.app/knapsack</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://dsa-study-hub.vercel.app/visualizer</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://dsa-study-hub.vercel.app/sorting</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://dsa-study-hub.vercel.app/tree-graph</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/knapsack</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/system-design</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Program Detail Pages -->
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program1</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dsa-study-hub.vercel.app/system-design</loc>
+        <loc>https://dsa-study-hub.vercel.app/program/program2</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program3</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program4</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program5a</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program5b</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program6</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program7</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program8</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program9</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program10</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program11</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dsa-study-hub.vercel.app/program/program12</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Policies & Legal Pages -->
     <url>
         <loc>https://dsa-study-hub.vercel.app/privacy</loc>
         <changefreq>yearly</changefreq>
@@ -50,6 +120,8 @@
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+
+    <!-- Related Portfolio Projects -->
     <url>
         <loc>https://valentine-iota-puce-94.vercel.app</loc>
         <changefreq>monthly</changefreq>

@@ -1,8 +1,75 @@
+# ==============================================================================
+# DSA Study Hub - robots.txt
+# Notice: Automated web scraping, data harvesting, extraction, mining, and AI
+# training on this platform without explicit prior written consent are strictly
+# prohibited for security, data privacy, and intellectual property protection.
+# ==============================================================================
+
+# Block known AI crawlers, data scrapers, and bulk harvesting bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Cohere-ai
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+# General Search Engine Crawlers
 User-agent: *
 Allow: /
+
+# Disallow administrative, authentication, private, and backend API routes
+Disallow: /api/
 Disallow: /admin
 Disallow: /profile
-Disallow: /auth/callback
+Disallow: /auth/
+Disallow: /reset-password/
 Disallow: /report
+
+# Rate limiting to deter aggressive crawling and scraping
+Crawl-delay: 10
 
 Sitemap: https://dsa-study-hub.vercel.app/sitemap.xml
