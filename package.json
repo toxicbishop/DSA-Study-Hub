@@ -44,7 +44,7 @@
     "jsdom": "^29.0.2",
     "minimatch": "^10.2.2",
     "png-to-ico": "^3.0.1",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.29",
     "sharp": "^0.35.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
@@ -55,7 +55,7 @@
   "overrides": {
     "minimatch": "^10.2.2",
     "cookie": "^0.7.0",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.29",
     "fast-uri": ">=4.1.5",
     "vite": ">=8.3.4",
     "js-yaml": ">=4.3.2",
@@ -66,7 +66,7 @@
   "resolutions": {
     "minimatch": "^10.2.2",
     "cookie": "^0.7.0",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.29",
     "fast-uri": ">=4.1.5",
     "vite": ">=8.3.4",
     "js-yaml": ">=4.3.2",
