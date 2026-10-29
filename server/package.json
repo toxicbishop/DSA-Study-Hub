@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "jest": "^30.5.2",
-    "js-yaml": "^5.4.1",
+    "js-yaml": "^5.5.0",
     "nodemon": "^3.1.14",
     "supertest": "^7.3.1"
   },
@@ -45,7 +45,7 @@
   },
   "overrides": {
     "form-data": ">=4.0.6",
-    "js-yaml": "^5.4.1",
+    "js-yaml": "^5.5.0",
     "brace-expansion": ">=5.0.12",
     "body-parser": ">=1.20.6",
     "ip-address": ">=10.7.1",
@@ -53,7 +53,7 @@
   },
   "resolutions": {
     "form-data": ">=4.0.6",
-    "js-yaml": "^5.4.1",
+    "js-yaml": "^5.5.0",
     "brace-expansion": ">=5.0.12",
     "body-parser": ">=1.20.6",
     "ip-address": ">=10.7.1",
