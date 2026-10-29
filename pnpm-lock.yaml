@@ -50,8 +50,8 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-syntax-highlighter:
-        specifier: ^16.1.0
-        version: 16.1.1(react@19.2.8)
+        specifier: ^16.1.2
+        version: 16.1.2(react@19.2.8)
       snowfall:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1627,8 +1627,8 @@ packages:
       react: "^16.8 ||\_17.x || 18.x || 19.x"
       react-dom: ^16.8 || 17.x || 18.x || 19.x
 
-  react-syntax-highlighter@16.1.1:
-    resolution: {integrity: sha512-PjVawBGy80C6YbC5DDZJeUjBmC7skaoEUdvfFQediQHgCL7aKyVHe57SaJGfQsloGDac+gCpTfRdtxzWWKmCXA==}
+  react-syntax-highlighter@16.1.2:
+    resolution: {integrity: sha512-4dM0+mYtfnhgwYWAvFx56fgyjIYk2yFopfiICFvMDhRfeSGRNd+ngFALdPD9q7llyGAmiE6pzOSOwI8Lf9ca1w==}
     engines: {node: '>= 16.20.2'}
     peerDependencies:
       react: '>= 0.14.0'
@@ -3267,9 +3267,9 @@ snapshots:
       react-dom: 19.2.8(react@19.2.8)
       react-fast-compare: 3.2.2
 
-  react-syntax-highlighter@16.1.1(react@19.2.8):
+  react-syntax-highlighter@16.1.2(react@19.2.8):
     dependencies:
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.10
       highlight.js: 10.7.3
       highlightjs-vue: 1.0.0
       lowlight: 1.20.0
