@@ -73,8 +73,8 @@ importers:
         specifier: ^2.5.0
         version: 2.5.0
       nodemailer:
-        specifier: ^10.1.4
-        version: 10.1.4
+        specifier: ^10.3.1
+        version: 10.3.1
     devDependencies:
       jest:
         specifier: ^30.5.2
@@ -1686,8 +1686,8 @@ packages:
     resolution: {integrity: sha512-kQK9LGGFiHtrWiNhZtA7Qbw17AQz+dmsEKODRIVTXA9+e5MS/2gZEBhYJt13GrAz5/IOZKddH/0Z3TP/Zgo+yw==}
     engines: {node: '>=18'}
 
-  nodemailer@10.1.4:
-    resolution: {integrity: sha512-EsMnOR2oRv4LGnWvHgcVYkkQ4O2j8KO4WTw6l+PHR4sOXo8SAgIraxtEnGDmotjbhv0hDsu3IuDIFZm8iXwO4A==}
+  nodemailer@10.3.1:
+    resolution: {integrity: sha512-uF0AFsJC07Y1vdW7p580DKAnh7rAO+4UPSSB3mDCPNDufoiaOebV6JmrzpxB14OjEEEiBsNdYoM2Y+fN8M7BBA==}
     engines: {node: '>=20.0.0'}
 
   nodemon@3.1.14:
@@ -3949,7 +3949,7 @@ snapshots:
 
   node-releases@2.0.57: {}
 
-  nodemailer@10.1.4: {}
+  nodemailer@10.3.1: {}
 
   nodemon@3.1.14:
     dependencies:
