@@ -228,10 +228,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
 
-  if (isLoading) return <Loader />;
-
   return (
     <Providers>
+      {isLoading && <Loader />}
 
       <div className={`min-h-screen relative z-0 overflow-x-hidden transition-colors duration-300 ${darkMode ? "bg-[#070B14] text-white" : "bg-gray-50 text-gray-900"}`}>
         {isWinter && <Snowfall />}

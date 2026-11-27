@@ -85,7 +85,7 @@ export const SEO = ({
   const finalImageHeight = imageHeight !== undefined
     ? String(imageHeight)
     : (isDefaultImage ? String(DEFAULT_IMAGE_HEIGHT) : undefined);
-  const finalImageAlt = imageAlt || (title ? `${title} - ${siteName}` : DEFAULT_IMAGE_ALT);
+  const finalImageAlt = imageAlt || (title && title !== siteName ? `${title} - ${siteName}` : DEFAULT_IMAGE_ALT);
 
   const ogType = type || (article ? 'article' : 'website');
 
