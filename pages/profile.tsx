@@ -2,9 +2,19 @@ import { ProfileView } from '../src/views/ProfileView';
 import { GetServerSidePropsContext } from 'next';
 import { parseCookies } from 'nookies';
 import { GoogleUser } from '../src/components/GoogleAuth';
+import { SEO } from '../src/components/SEO';
 
 export default function Profile({ user }: { user: GoogleUser | null }) {
-  return <ProfileView user={user} onUpdate={() => {}} />;
+  return (
+    <>
+      <SEO 
+        title="Your Profile" 
+        description="Manage your DSA Study Hub account settings, saved progress, and preferences." 
+        noindex 
+      />
+      <ProfileView user={user} onUpdate={() => {}} />
+    </>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
@@ -24,7 +34,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   } catch {
     // ignore
   }
+
   return {
-    props: { user },
+    props: {
+      user,
+    },
   };
 }
